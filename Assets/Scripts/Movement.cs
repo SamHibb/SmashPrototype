@@ -10,6 +10,8 @@ public class Movement : MonoBehaviour {
     private float y = 0;
     private bool isGrounded = true;
 
+    private Vector3 collisionPoint;
+
     // Use this for initialization
     void Start () {
 		
@@ -41,19 +43,33 @@ public class Movement : MonoBehaviour {
         //transform.position = Vector2.Lerp(transform.position, transform.position + new Vector3(x, y, 0), 1.0f);
         GetComponent<Rigidbody>().AddForce(new Vector2(x, y) * walkForce, ForceMode.Impulse);
 
-        if (x > 0) x -= 0.1f;
-        else if (x < 0) x += 0.1f;
+        if (x > 0)
+        {
+            x -= 0.1f;
+        }
+        else if (x < 0)
+        {
+            x += 0.1f;
+        }
     }
 
-    void OnCollisionStay()
+    void OnCollisionStay(Collision collision)
     {
+        collisionPoint = collision.contacts[0].point;
         isGrounded = true;
     }
 
 
     private void jump()
     {
-        GetComponent<Rigidbody>().AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+        if (collisionPoint.y > -0.1)
+        {
+            GetComponent<Rigidbody>().AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+        }
+        else
+        {
+            GetComponent<Rigidbody>().AddForce(new Vector2((collisionPoint.x / 10), 1) * jumpForce, ForceMode.Impulse);
+        }
         isGrounded = false;
     }
 }
