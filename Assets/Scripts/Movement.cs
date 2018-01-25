@@ -10,35 +10,47 @@ public class Movement : MonoBehaviour {
     private float y = 0;
     private bool isGrounded = true;
 
+    public int player_no = 0;
+
     private Vector3 collisionPoint;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKey("a"))
+    private string player_string;
+
+    private void Start()
+    {
+        player_string = "P" + player_no.ToString();
+        Debug.Log(player_string);
+    }
+
+    // Update is called once per frame
+    void Update () {
+        if (Input.GetAxis(player_string + "Horizontal") > 0.1f)
+        {
+            if (isGrounded)
+            {
+                x += 0.1f;
+            }
+            else
+            {
+                x += 0.05f;
+            }
+        }
+
+        else if (Input.GetAxis(player_string + "Horizontal") < -0.1f)
         {
             if (isGrounded)
             {
                 x -= 0.1f;
             }
             else
+            {
                 x -= 0.05f;
+            }
         }
 
-        if (Input.GetKey("d"))
+        if (Input.GetButtonDown(player_string + "A") && isGrounded)
         {
-            if (isGrounded)
-                x += 0.1f;
-            else
-                x += 0.05f;
-        }
-
-        if (Input.GetKey("space") && isGrounded)
-        {
+            Debug.Log(player_string + " " + player_no);
             jump(); 
         }
 
@@ -55,7 +67,7 @@ public class Movement : MonoBehaviour {
         }
     }
 
-    void OnCollisionStay(Collision collision)
+    void OnCollisionStay2D(Collision2D collision)
     {
         collisionPoint = collision.contacts[0].point;
         isGrounded = true;
