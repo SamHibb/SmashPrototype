@@ -11,6 +11,8 @@ public class Attack : MonoBehaviour {
 
     private string player_string;
 
+    private Vector2 normalVec = new Vector2(1, 1);
+
     void Start()
     {
         player_string = "P" + player_no.ToString();
@@ -35,7 +37,7 @@ public class Attack : MonoBehaviour {
 
                         Rigidbody2D rb = hitColliders[i].gameObject.GetComponent<Rigidbody2D>();
                         Vector2 opposite = this.gameObject.GetComponent<Rigidbody2D>().velocity;
-                        rb.AddForce(opposite * strenght);
+                        rb.AddForce((opposite + normalVec) * strenght);
                         Debug.Log("Attack " + player_string);
                     }
                 }
