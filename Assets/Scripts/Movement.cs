@@ -41,7 +41,7 @@ public class Movement : MonoBehaviour {
         }
 
         //transform.position = Vector2.Lerp(transform.position, transform.position + new Vector3(x, y, 0), 1.0f);
-        GetComponent<Rigidbody>().AddForce(new Vector2(x, y) * walkForce, ForceMode.Impulse);
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(x, y) * walkForce, ForceMode2D.Impulse);
 
         if (x > 0)
         {
@@ -64,11 +64,11 @@ public class Movement : MonoBehaviour {
     {
         if (collisionPoint.y > -0.1)
         {
-            GetComponent<Rigidbody>().AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
         else
         {
-            GetComponent<Rigidbody>().AddForce(new Vector2((collisionPoint.x / 10), 1) * jumpForce, ForceMode.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(new Vector2((collisionPoint.x / 10), 1) * jumpForce, ForceMode2D.Impulse);
         }
         isGrounded = false;
     }
