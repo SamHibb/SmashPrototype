@@ -8,11 +8,13 @@ public class SpawnPlayer : MonoBehaviour {
 
     int players_joined = 0;
 
+    string player_no = "P0";
+
     GameObject[] players = new GameObject[max_players];
 	
 	void Update ()
     {
-		if (Input.GetButtonDown("P1Start"))
+		if (Input.GetButtonDown(player_no + "Start"))
         {
             if (players_joined < max_players)
             {
@@ -25,6 +27,10 @@ public class SpawnPlayer : MonoBehaviour {
                 players[players_joined].GetComponent<Movement>().player_no = players_joined;
               
                 players_joined++;
+                if (players_joined < max_players)
+                { 
+                player_no = "P" + players_joined;
+                }
             }
         }
 	}
