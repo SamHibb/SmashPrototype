@@ -10,50 +10,80 @@ public class Movement : MonoBehaviour {
     private float y = 0;
     private bool isGrounded = true;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKey("a"))
-        {
-            if (isGrounded)
-                x -= 0.1f;
-            else
-                x -= 0.05f;
-        }
+    public int player_no = 0;
 
-        if (Input.GetKey("d"))
+    private Vector3 collisionPoint;
+
+    private string player_string;
+
+    private void Start()
+    {
+        player_string = "P" + player_no.ToString();
+        Debug.Log(player_string);
+    }
+
+    // Update is called once per frame
+    void Update () {
+        if (Input.GetAxis(player_string + "Horizontal") > 0.1f)
         {
             if (isGrounded)
+            {
                 x += 0.1f;
+            }
             else
+            {
                 x += 0.05f;
+            }
         }
 
-        if (Input.GetKey("space") && isGrounded)
+        else if (Input.GetAxis(player_string + "Horizontal") < -0.1f)
         {
+            if (isGrounded)
+            {
+                x -= 0.1f;
+            }
+            else
+            {
+                x -= 0.05f;
+            }
+        }
+
+        if (Input.GetButtonDown(player_string + "A") && isGrounded)
+        {
+            Debug.Log(player_string + " " + player_no);
             jump(); 
         }
 
         //transform.position = Vector2.Lerp(transform.position, transform.position + new Vector3(x, y, 0), 1.0f);
-        GetComponent<Rigidbody>().AddForce(new Vector2(x, y) * walkForce, ForceMode.Impulse);
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(x, y) * walkForce, ForceMode2D.Impulse);
 
-        if (x > 0) x -= 0.1f;
-        else if (x < 0) x += 0.1f;
+        if (x > 0)
+        {
+            x -= 0.1f;
+        }
+        else if (x < 0)
+        {
+            x += 0.1f;
+        }
     }
 
-    void OnCollisionStay()
+    void OnCollisionStay2D(Collision2D collision)
     {
+        collisionPoint = collision.contacts[0].point;
         isGrounded = true;
     }
 
 
     private void jump()
     {
-        GetComponent<Rigidbody>().AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+        if (collisionPoint.y > -0.1)
+        {
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+        else
+        {
+            GetComponent<Rigidbody2D>().AddForce(new Vector2((collisionPoint.x / 10), 1) * jumpForce, ForceMode2D.Impulse);
+        }
         isGrounded = false;
     }
 }
