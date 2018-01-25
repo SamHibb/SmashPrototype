@@ -24,7 +24,7 @@ public class Movement : MonoBehaviour {
             if (isGrounded)
                 x -= 0.1f;
             else
-                x -= 0.05f;
+                x -= 0.08f;
         }
 
         if (Input.GetKey("d"))
@@ -32,7 +32,7 @@ public class Movement : MonoBehaviour {
             if (isGrounded)
                 x += 0.1f;
             else
-                x += 0.05f;
+                x += 0.08f;
         }
 
         if (Input.GetKey("space") && isGrounded)
@@ -53,7 +53,7 @@ public class Movement : MonoBehaviour {
         }
     }
 
-    void OnCollisionStay(Collision collision)
+    void OnCollisionStay2D(Collision2D collision)
     {
         collisionPoint = collision.contacts[0].point;
         isGrounded = true;
