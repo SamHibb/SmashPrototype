@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnPlayer : MonoBehaviour {
     public GameObject player;
-    public static int max_players = 3;
+    static int max_players = 2;
 
     int players_joined = 0;
 
@@ -12,7 +12,7 @@ public class SpawnPlayer : MonoBehaviour {
 	
 	void Update ()
     {
-		if (Input.GetButtonDown("AddPlayer"))
+		if (Input.GetButtonDown("P1Start"))
         {
             if (players_joined < max_players)
             {
@@ -21,6 +21,8 @@ public class SpawnPlayer : MonoBehaviour {
 
                 //will hopefully become assign sprite
                 assignColour();
+
+                players[players_joined].GetComponent<Movement>().player_no = players_joined;
               
                 players_joined++;
             }
