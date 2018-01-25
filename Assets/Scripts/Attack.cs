@@ -6,10 +6,11 @@ public class Attack : MonoBehaviour {
 
     public float radius;
     public float strenght = 10;
+    private Vector2 normalVec = new Vector2(1, 1);
 
 
     // Use this for initialization
-	void Start ()
+    void Start ()
     {
 
 	}
@@ -31,8 +32,8 @@ public class Attack : MonoBehaviour {
                     {
 
                         Rigidbody2D rb = hitColliders[i].gameObject.GetComponent<Rigidbody2D>();
-                        Vector2 opposite = this.gameObject.GetComponent<Rigidbody2D>().velocity;
-                        rb.AddForce(opposite * strenght);
+                        var opposite = this.gameObject.GetComponent<Rigidbody2D>().velocity;
+                        rb.AddForce((opposite + normalVec) * strenght);
                         Debug.Log("Attack");
                     }
                 }
