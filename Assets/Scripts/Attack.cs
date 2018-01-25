@@ -7,18 +7,21 @@ public class Attack : MonoBehaviour {
     public float radius;
     public float strenght = 10;
 
+    public int player_no = 0;
 
-    // Use this for initialization
-	void Start ()
+    private string player_string;
+
+    void Start()
+    {
+        player_string = "P" + player_no.ToString();
+        Debug.Log(player_string);
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
 
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-
-        if (Input.GetKeyDown("l"))
+        if (Input.GetButtonDown(player_string + "B"))
         {
             Collider2D[] hitColliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
 
@@ -33,7 +36,7 @@ public class Attack : MonoBehaviour {
                         Rigidbody2D rb = hitColliders[i].gameObject.GetComponent<Rigidbody2D>();
                         Vector2 opposite = this.gameObject.GetComponent<Rigidbody2D>().velocity;
                         rb.AddForce(opposite * strenght);
-                        Debug.Log("Attack");
+                        Debug.Log("Attack " + player_string);
                     }
                 }
                 i++;

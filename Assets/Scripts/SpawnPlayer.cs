@@ -25,7 +25,8 @@ public class SpawnPlayer : MonoBehaviour {
                 assignColour();
 
                 players[players_joined].GetComponent<Movement>().player_no = players_joined;
-              
+                players[players_joined].GetComponent<Attack>().player_no = players_joined;
+
                 players_joined++;
                 if (players_joined < max_players)
                 { 
