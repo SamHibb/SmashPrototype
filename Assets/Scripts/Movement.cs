@@ -22,7 +22,9 @@ public class Movement : MonoBehaviour {
         if (Input.GetKey("a"))
         {
             if (isGrounded)
+            {
                 x -= 0.1f;
+            }
             else
                 x -= 0.05f;
         }
