@@ -11,15 +11,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level Selection.unity
     guid: 3952693730ef58545bc18ae84f867312
-  - enabled: 1
-    path: Assets/Main.unity
+  - enabled: 0
+    path: Assets/Scenes/Main.unity
     guid: 854a98c23c7e92e4397a1f7b1884b68f
   - enabled: 1
-    path: Assets/Scenes/Levels/Green.unity
-    guid: 71625d95dac2b494eac5a6e261369a31
+    path: Assets/Scenes/Levels/Arena 0.unity
+    guid: 3aac7d5d31839624d8a392a2af96818d
   - enabled: 1
-    path: Assets/Scenes/Levels/Pink.unity
-    guid: 8975b17d6c235d340990b0aed55dcc02
+    path: Assets/Scenes/Levels/Arena 1.unity
+    guid: 99225cf3488d5394a93e7944da29e914
   - enabled: 1
-    path: Assets/Scenes/Levels/Red.unity
-    guid: 9eb68cc6385728d42a049eb9a035e527
+    path: Assets/Scenes/Levels/Arena 2.unity
+    guid: f79194e4c59017a46bd480222985ce67
+  - enabled: 1
+    path: Assets/Scenes/Levels/Arena 3.unity
+    guid: 64d2458dbc3fedd49ab933130d6205c8
