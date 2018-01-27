@@ -23,3 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Red.unity
     guid: 9eb68cc6385728d42a049eb9a035e527
+  - enabled: 1
+    path: Assets/Scenes/Levels/Arena 1.unity
+    guid: 99225cf3488d5394a93e7944da29e914
