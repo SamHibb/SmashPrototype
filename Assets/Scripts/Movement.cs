@@ -10,16 +10,22 @@ public class Movement : MonoBehaviour {
     private float y = 0;
     private bool isGrounded = true;
 
+    public float fall_speed = 1;
+
     public int player_no = 0;
 
     private Vector3 collisionPoint;
 
     private string player_string;
 
+    private Rigidbody2D rb;
+
     private void Start()
     {
         player_string = "P" + player_no.ToString();
         Debug.Log(player_string);
+
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -55,9 +61,18 @@ public class Movement : MonoBehaviour {
         }
 
         //this moves the player
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(x, y) * walkForce, ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(x, y) * walkForce, ForceMode2D.Impulse);
 
         dampenForces();
+
+        if (rb.velocity.y < 0)
+        {
+            rb.gravityScale = fall_speed;
+        }
+        else
+        {
+            rb.gravityScale = 1;
+        }
     }
 
     void OnCollisionStay2D(Collision2D collision)
