@@ -23,4 +23,9 @@ public class Damage : MonoBehaviour {
     {
         return damageMultiplier;
     }
+
+    public void resetDamageMul()
+    {
+        damageMultiplier = 1;
+    }
 }

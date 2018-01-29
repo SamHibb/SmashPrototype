@@ -18,6 +18,7 @@ public class Respawn : MonoBehaviour {
 		if(transform.position.x > max_x || transform.position.x < min_x || transform.position.y < min_y || transform.position.y > max_y)
         {
             transform.position = new Vector2(0, 0);
+            this.GetComponent<Damage>().resetDamageMul();
         }
 
     }
