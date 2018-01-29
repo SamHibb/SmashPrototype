@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public int timeSec = 5;
+    public int timeSec = 60;
     public int timeMin = 4;
     public Text contDownText;
 
