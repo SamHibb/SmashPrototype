@@ -6,6 +6,8 @@ public class Attack : MonoBehaviour {
 
     public float radius;
     public float strenght = 10;
+    public int damageMultiplier = 6;
+    public int rotation = 1;
 
     public int player_no = 0;
 
@@ -35,9 +37,20 @@ public class Attack : MonoBehaviour {
                     if (hitColliders[i].transform.root != this.gameObject.transform)
                     {
 
+                        int damageMul = hitColliders[i].gameObject.GetComponent<Damage>().getDamageMul();
                         Rigidbody2D rb = hitColliders[i].gameObject.GetComponent<Rigidbody2D>();
                         Vector2 force = this.gameObject.GetComponent<Rigidbody2D>().velocity;
-                        rb.AddForce(force * strenght, ForceMode2D.Impulse);
+                        force.Normalize();
+                        if((force.x < 0.5 && force.x > -0.5)
+                            && (force.y < 0.5 && force.y > -0.5))
+                        {
+                            force.x = 0.5f * rotation;
+                            force.y = 0.5f * rotation;
+                        }
+                        Vector2 debugForce = force * strenght * damageMul;
+                        Debug.Log(debugForce + "attack force");
+                        rb.AddForce(force * strenght * damageMul, ForceMode2D.Impulse);
+                        hitColliders[i].gameObject.GetComponent<Damage>().increaseDamageMul(damageMultiplier);
                         Debug.Log("Attack " + player_string);
                     }
                 }
