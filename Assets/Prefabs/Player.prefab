@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 50549103088993652}
   - component: {fileID: 114832985117655368}
   - component: {fileID: 114380636387404874}
+  - component: {fileID: 114737028149454874}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -118,7 +119,7 @@ MonoBehaviour:
   player_no: 0
 --- !u!114 &114737028149454874
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1794473889166426}
