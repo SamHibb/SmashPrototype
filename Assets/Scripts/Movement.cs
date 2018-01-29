@@ -34,7 +34,6 @@ public class Movement : MonoBehaviour {
             {
                 x += 0.08f;
             }
-
         }
 
         else if (Input.GetAxis(player_string + "Horizontal") < -0.1f)
@@ -44,7 +43,7 @@ public class Movement : MonoBehaviour {
                 x -= 0.1f;
             }
             else
-            { 
+            {
                 x -= 0.08f;
             }
         }
@@ -55,9 +54,31 @@ public class Movement : MonoBehaviour {
             jump(); 
         }
 
-        //transform.position = Vector2.Lerp(transform.position, transform.position + new Vector3(x, y, 0), 1.0f);
+        //this moves the player
         GetComponent<Rigidbody2D>().AddForce(new Vector2(x, y) * walkForce, ForceMode2D.Impulse);
 
+        dampenForces();
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        collisionPoint = collision.contacts[0].point;
+        isGrounded = true;
+        y = 0;
+    }
+
+
+    private void jump()
+    {
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
+        //so onCollisionStay isn't immediately triggered
+        transform.Translate(0, 0.01f, 0);
+        isGrounded = false;
+    }
+
+    private void dampenForces()
+    {
         if (x > 0)
         {
             x -= 0.1f;
@@ -66,25 +87,15 @@ public class Movement : MonoBehaviour {
         {
             x += 0.1f;
         }
-    }
 
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        collisionPoint = collision.contacts[0].point;
-        isGrounded = true;
-    }
-
-
-    private void jump()
-    {
-        if (collisionPoint.y > -0.1)
+        if (x < 0.1f || x > 0.1f)
         {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            x = 0;
         }
-        else
+
+        if (y > 0)
         {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2((collisionPoint.x / 10), 1) * jumpForce, ForceMode2D.Impulse);
+            y -= 0.1f;
         }
-        isGrounded = false;
     }
 }
