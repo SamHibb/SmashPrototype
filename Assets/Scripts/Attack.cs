@@ -36,8 +36,8 @@ public class Attack : MonoBehaviour {
                     {
 
                         Rigidbody2D rb = hitColliders[i].gameObject.GetComponent<Rigidbody2D>();
-                        Vector2 opposite = this.gameObject.GetComponent<Rigidbody2D>().velocity;
-                        rb.AddForce((opposite + normalVec) * strenght);
+                        Vector2 force = this.gameObject.GetComponent<Rigidbody2D>().velocity;
+                        rb.AddForce(force * strenght, ForceMode2D.Impulse);
                         Debug.Log("Attack " + player_string);
                     }
                 }
