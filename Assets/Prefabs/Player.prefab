@@ -116,6 +116,21 @@ MonoBehaviour:
   walkForce: 4
   fall_speed: 3
   player_no: 0
+--- !u!114 &114737028149454874
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1794473889166426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2de2938ced4fca47909982dc1e61647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min_x: -20
+  max_x: 20
+  min_y: -6
+  max_y: 15
 --- !u!114 &114832985117655368
 MonoBehaviour:
   m_ObjectHideFlags: 1
