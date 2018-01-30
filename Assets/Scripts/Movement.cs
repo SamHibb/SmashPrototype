@@ -113,4 +113,22 @@ public class Movement : MonoBehaviour {
             y -= 0.1f;
         }
     }
+
+	void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.transform.tag == "MovingPlatform") 
+		{
+			transform.parent = other.transform;
+		}
+	}
+	void OnCollisionExit2D(Collision2D other)
+	{
+		if (other.transform.tag == "MovingPlatform") 
+		{
+			transform.parent = null;
+		}
+	}
+
+
+
 }
