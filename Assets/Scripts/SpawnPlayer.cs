@@ -35,8 +35,7 @@ public class SpawnPlayer : MonoBehaviour {
             }
         }
 	}
-
-
+    
     void assignColour()
     {
         Color colour = Color.white;
