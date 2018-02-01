@@ -33,6 +33,7 @@ public class SpawnPlayer : MonoBehaviour {
                 player_no = "P" + players_joined;
                 }
             }
+            gameObject.GetComponent<PanelInfo>().findPlayers();
         }
 	}
 
