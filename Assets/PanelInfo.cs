@@ -7,26 +7,47 @@ public class PanelInfo : MonoBehaviour
 {
     private GameObject[] players;
 
-    public Text[] playerTexts = new Text[4];
-    public Image[] playerImages = new Image[4];
-    
-    private void Start()
-    {
-        players = GameObject.FindGameObjectsWithTag("Player");
-    }
+    public Text player1Text;
+    public Text player2Text;
+    public Text player3Text;
+    public Text player4Text;
 
-    public void findPlayers()
+    public Image player1Image;
+    public Image player2Image;
+    public Image player3Image;
+    public Image player4Image;
+
+
+    public void findAll()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
     }
 
     void Update ()
     {
-        for(int i = 0; i < players.Length; i++)
+        if (players.Length > 0)
         {
-            playerTexts[i].text = "Damage: " + players[i].GetComponent<Damage>().getDamageMul()
-               + "\nDeaths: " + players[i].GetComponent<Damage>().getTimesDied();
-            playerImages[i].sprite = players[i].GetComponent<SpriteRenderer>().sprite;
+            player1Text.text = "Damage: " + players[0].GetComponent<Damage>().getDamageMul()
+                + "\nDeaths: " + players[0].GetComponent<Damage>().getTimesDied();
+            player1Image.sprite = players[0].GetComponent<SpriteRenderer>().sprite;
         }
+        if (players.Length > 1)
+        {
+            player2Text.text = "Damage: " + players[1].GetComponent<Damage>().getDamageMul()
+                 + "\nDeaths: " + players[1].GetComponent<Damage>().getTimesDied();
+            player2Image.sprite = players[1].GetComponent<SpriteRenderer>().sprite;
+        }
+        if (players.Length > 2)
+        {
+            player3Text.text = "Damage: " + players[2].GetComponent<Damage>().getDamageMul()
+                 + "\nDeaths: " + players[2].GetComponent<Damage>().getTimesDied();
+            player3Image.sprite = players[2].GetComponent<SpriteRenderer>().sprite;
+        }
+        if (players.Length > 3)
+        {
+            player4Text.text = "Damage: " + players[3].GetComponent<Damage>().getDamageMul()
+                 + "\nDeaths: " + players[3].GetComponent<Damage>().getTimesDied();
+            player4Image.sprite = players[3].GetComponent<SpriteRenderer>().sprite;
+        } 
     }
 }
