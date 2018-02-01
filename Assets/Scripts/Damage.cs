@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour {
 
-    private int damageMultiplier;
-
-	// Use this for initialization
-	void Start () {
-        damageMultiplier = 1;
-	}
+    private int damageMultiplier = 0;
+    private int times_died = 0;
 	
-	// Update is called once per frame
-	public void increaseDamageMul (int multiplier) {
-
+	public void increaseDamageMul (int multiplier)
+    {
         damageMultiplier += multiplier;
-        Debug.Log("multiplier " + damageMultiplier);
+        Debug.Log("multiplier: " + damageMultiplier);
 
     }
 
@@ -27,5 +22,15 @@ public class Damage : MonoBehaviour {
     public void resetDamageMul()
     {
         damageMultiplier = 1;
+    }
+
+    public void increaseTimesDied()
+    {
+        times_died++;
+    }
+
+    public int getTimesDied()
+    {
+        return times_died;
     }
 }
