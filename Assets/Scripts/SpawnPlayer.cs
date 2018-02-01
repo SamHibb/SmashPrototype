@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnPlayer : MonoBehaviour {
     public GameObject player;
-    static int max_players = 2;
+    static int max_players = 4;
 
     int players_joined = 0;
 
