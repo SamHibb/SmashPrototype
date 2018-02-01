@@ -16,6 +16,12 @@ public class SpawnPlayer : MonoBehaviour {
     void Start ()
     {
         DontDestroyOnLoad(this);
+
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
 	void Update ()
@@ -39,8 +45,9 @@ public class SpawnPlayer : MonoBehaviour {
                 player_no = "P" + players_joined;
                 }
             }
+            GameObject.FindGameObjectWithTag("UI").GetComponent<PanelInfo>().findPlayers();
         }
-	}
+    }
 
 
     void assignColour()
@@ -83,6 +90,7 @@ public class SpawnPlayer : MonoBehaviour {
     {
         max_players = n;
         players = new GameObject[max_players];
+        Debug.Log(n);
     }
 
 }

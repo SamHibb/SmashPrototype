@@ -18,7 +18,7 @@ public class PanelInfo : MonoBehaviour
     public Image player4Image;
 
 
-    public void findAll()
+    public void findPlayers()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
     }
