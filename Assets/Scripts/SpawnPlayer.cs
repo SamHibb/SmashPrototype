@@ -11,8 +11,13 @@ public class SpawnPlayer : MonoBehaviour {
 
     string player_no = "P0";
 
-    GameObject[] players;  
-	
+    GameObject[] players;
+
+    public Sprite character1;
+    public Sprite character2;
+    public Sprite character3;
+    public Sprite character4;
+
     void Start ()
     {
         DontDestroyOnLoad(this);
@@ -52,38 +57,26 @@ public class SpawnPlayer : MonoBehaviour {
 
     void assignColour()
     {
-        Color colour = Color.white;
+        Sprite player_sprites = null;
         switch (players_joined)
         {
             case 0:
-                colour = Color.red;
+                player_sprites = character1;
                 break;
             case 1:
-                colour = Color.blue;
+                player_sprites = character2;
                 break;
             case 2:
-                colour = Color.green;
+                player_sprites = character3;
                 break;
             case 3:
-                colour = Color.yellow;
-                break;
-            case 4:
-                colour = Color.black;
-                break;
-            case 5:
-                colour = Color.white;
-                break;
-            case 6:
-                colour = Color.cyan;
-                break;
-            case 7:
-                colour = Color.magenta;
+                player_sprites = character4;
                 break;
             default:
-                Debug.Log("colour assignment has gone wrong");
+                Debug.Log("sprite assignment has gone wrong");
                 break;
         }
-        players[players_joined].GetComponent<SpriteRenderer>().color = colour;
+        players[players_joined].GetComponent<SpriteRenderer>().sprite = player_sprites;
     }
 
     public void amountOfPLayer(int n)

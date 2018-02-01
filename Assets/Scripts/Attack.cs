@@ -36,26 +36,28 @@ public class Attack : MonoBehaviour {
                 {
                     if (hitColliders[i].transform.root != this.gameObject.transform)
                     {
-
-                        int damageMul = hitColliders[i].gameObject.GetComponent<Damage>().getDamageMul();
                         Rigidbody2D rb = hitColliders[i].gameObject.GetComponent<Rigidbody2D>();
-                        Vector2 force = this.gameObject.GetComponent<Rigidbody2D>().velocity;
-                        force.Normalize();
-                        if(force.x < 0.5 && force.x > -0.5)
+                        if (rb != gameObject.GetComponent<Rigidbody2D>())
                         {
-                            force.x = 0.5f * this.GetComponent<Movement>().GetOrientation();
-                            Debug.Log(force + "force");
+                            int damageMul = hitColliders[i].gameObject.GetComponent<Damage>().getDamageMul();
+                            Vector2 force = this.gameObject.GetComponent<Rigidbody2D>().velocity;
+                            force.Normalize();
+                            if (force.x < 0.5 && force.x > -0.5)
+                            {
+                                force.x = 0.5f * this.GetComponent<Movement>().GetOrientation();
+                                Debug.Log(force + "force");
+                            }
+                            if (force.y < 0.5 && force.y > -0.5)
+                            {
+                                force.y = 0.5f; //this.GetComponent<Movement>().GetOrientation();
+                            }
+                            Debug.Log(damageMul + "mul " + strenght + "strenght");
+                            Vector2 debugForce = force * strenght * damageMul;
+                            Debug.Log(debugForce + "attack force");
+                            rb.AddForce(force * strenght * damageMul, ForceMode2D.Impulse);
+                            hitColliders[i].gameObject.GetComponent<Damage>().increaseDamageMul(damageMultiplier);
+                            Debug.Log("Attack " + player_string);
                         }
-                        if (force.y < 0.5 && force.y > -0.5)
-                        {
-                            force.y = 0.5f; //this.GetComponent<Movement>().GetOrientation();
-                        }
-                        Debug.Log(damageMul + "mul " + strenght + "strenght");
-                        Vector2 debugForce = force * strenght * damageMul;
-                        Debug.Log(debugForce + "attack force");
-                        rb.AddForce(force * strenght * damageMul, ForceMode2D.Impulse);
-                        hitColliders[i].gameObject.GetComponent<Damage>().increaseDamageMul(damageMultiplier);
-                        Debug.Log("Attack " + player_string);
                     }
                 }
                 i++;
