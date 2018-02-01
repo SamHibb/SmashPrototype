@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnPlayer : MonoBehaviour {
     public GameObject player;
@@ -14,14 +15,13 @@ public class SpawnPlayer : MonoBehaviour {
 	
     void Start ()
     {
-        max_players = AOPlayers;
-        players = new GameObject[max_players];
+        DontDestroyOnLoad(this);
     }
 
 	void Update ()
     {
-		//if (Input.GetButtonDown(player_no + "Start"))
-       // {
+		if (SceneManager.GetActiveScene().name != "Level Selection" && SceneManager.GetActiveScene().name != "Player Select")
+       {
             if (players_joined < max_players)
             {
                 Debug.Log("spawn player " + players_joined);
@@ -38,7 +38,7 @@ public class SpawnPlayer : MonoBehaviour {
                 { 
                 player_no = "P" + players_joined;
                 }
-            //}
+            }
             gameObject.GetComponent<PanelInfo>().findPlayers();
         }
 	}
@@ -79,4 +79,11 @@ public class SpawnPlayer : MonoBehaviour {
         }
         players[players_joined].GetComponent<SpriteRenderer>().color = colour;
     }
+
+    public void amountOfPLayer(int n)
+    {
+        max_players = n;
+        players = new GameObject[max_players];
+    }
+
 }
