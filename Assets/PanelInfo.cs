@@ -6,10 +6,6 @@ using UnityEngine.UI;
 public class PanelInfo : MonoBehaviour
 {
     private GameObject[] players;
-    //private GameObject player2;
-    //private GameObject player3;
-    //private GameObject player4;
-
 
     public Text player1Text;
     public Text player2Text;
