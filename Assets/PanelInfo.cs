@@ -7,8 +7,8 @@ public class PanelInfo : MonoBehaviour
 {
     private GameObject[] players;
 
-    public Text[] playerTexts;
-    public Image[] playerImages;
+    public Text[] playerTexts = new Text[4];
+    public Image[] playerImages = new Image[4];
     
     private void Start()
     {

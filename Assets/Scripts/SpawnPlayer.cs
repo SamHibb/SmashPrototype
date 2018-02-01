@@ -14,7 +14,7 @@ public class SpawnPlayer : MonoBehaviour {
 	
     void Start ()
     {
-        max_players = AOPlayers;
+        max_players = 1;    //temporary hard code
         players = new GameObject[max_players];
     }
 
