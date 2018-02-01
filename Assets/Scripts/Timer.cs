@@ -19,7 +19,14 @@ public class Timer : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        contDownText.text = ("Time Left = " + timeMin + ":" + timeSec);	
+        if (timeSec < 10)
+        {
+            contDownText.text = ("Time Remaining: " + timeMin + ":0" + timeSec);
+        }
+        else
+        {
+            contDownText.text = ("Time Remaining: " + timeMin + ":" + timeSec);
+        }
 	}
 
     IEnumerator louseTime()
