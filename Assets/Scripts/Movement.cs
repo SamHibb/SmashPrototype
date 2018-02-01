@@ -19,6 +19,9 @@ public class Movement : MonoBehaviour {
     private string player_string;
 
     private Rigidbody2D rb;
+    private SpriteRenderer spr;
+
+    private int orientation = 1;
 
     private void Start()
     {
@@ -26,6 +29,7 @@ public class Movement : MonoBehaviour {
         Debug.Log(player_string);
 
         rb = GetComponent<Rigidbody2D>();
+        spr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -40,6 +44,8 @@ public class Movement : MonoBehaviour {
             {
                 x += 0.08f;
             }
+            orientation = 1;
+            spr.flipX = true;
         }
 
         else if (Input.GetAxis(player_string + "Horizontal") < -0.1f)
@@ -52,6 +58,8 @@ public class Movement : MonoBehaviour {
             {
                 x -= 0.08f;
             }
+            orientation = -1;
+            spr.flipX = false;
         }
 
         if (Input.GetButtonDown(player_string + "A") && isGrounded)
@@ -128,6 +136,11 @@ public class Movement : MonoBehaviour {
 			transform.parent = null;
 		}
 	}
+
+    public int GetOrientation()
+    {
+        return orientation;
+    }
 
 
 

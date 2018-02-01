@@ -44,8 +44,8 @@ public class Attack : MonoBehaviour {
                         if((force.x < 0.5 && force.x > -0.5)
                             && (force.y < 0.5 && force.y > -0.5))
                         {
-                            force.x = 0.5f * rotation;
-                            force.y = 0.5f * rotation;
+                            force.x = 0.5f * this.GetComponent<Movement>().GetOrientation();
+                            force.y = 0.5f; //this.GetComponent<Movement>().GetOrientation();
                         }
                         Vector2 debugForce = force * strenght * damageMul;
                         Debug.Log(debugForce + "attack force");
