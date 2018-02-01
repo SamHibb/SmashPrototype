@@ -11,11 +11,6 @@ public class LoadOnClick : MonoBehaviour {
         Application.LoadLevel(level);
 	}
 
-    public void amountOfPLayer(int players)
-    {
-        AOPlayers = players;
-    }
-
     public void doQuit()
     {
         Application.Quit();
