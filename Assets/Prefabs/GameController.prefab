@@ -9,17 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1469725955336890}
+  m_RootGameObject: {fileID: 1780292472931052}
   m_IsPrefabParent: 1
---- !u!1 &1469725955336890
+--- !u!1 &1780292472931052
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4182798759431046}
-  - component: {fileID: 114414475509729930}
+  - component: {fileID: 4032956389006450}
+  - component: {fileID: 114058864789152832}
+  - component: {fileID: 114152577765479740}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -27,12 +28,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4182798759431046
+--- !u!4 &4032956389006450
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1469725955336890}
+  m_GameObject: {fileID: 1780292472931052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,15 +41,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114414475509729930
+--- !u!114 &114058864789152832
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1469725955336890}
+  m_GameObject: {fileID: 1780292472931052}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbc8d72061b1d2d4dace17ede6b226f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1794473889166426, guid: 134df3ce4a583324583a706eec8cba91, type: 2}
+--- !u!114 &114152577765479740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780292472931052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e1c12893c4e2114b81791379b89d1e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1Text: {fileID: 0}
+  player2Text: {fileID: 0}
+  player3Text: {fileID: 0}
+  player4Text: {fileID: 0}
+  player1Image: {fileID: 0}
+  player2Image: {fileID: 0}
+  player3Image: {fileID: 0}
+  player4Image: {fileID: 0}
