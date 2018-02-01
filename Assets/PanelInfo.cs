@@ -33,25 +33,25 @@ public class PanelInfo : MonoBehaviour
         {
             player1Text.text = "Damage: " + players[0].GetComponent<Damage>().getDamageMul()
                 + "\nDeaths: " + players[0].GetComponent<Damage>().getTimesDied();
-            player1Image.sprite = players[0].GetComponent<Image>().sprite;
+            player1Image.sprite = players[0].GetComponent<SpriteRenderer>().sprite;
         }
         if (players.Length > 1)
         {
             player2Text.text = "Damage: " + players[1].GetComponent<Damage>().getDamageMul()
                  + "\nDeaths: " + players[1].GetComponent<Damage>().getTimesDied();
-            player2Image.sprite = players[1].GetComponent<Image>().sprite;
+            player2Image.sprite = players[1].GetComponent<SpriteRenderer>().sprite;
         }
         if (players.Length > 2)
         {
             player3Text.text = "Damage: " + players[2].GetComponent<Damage>().getDamageMul()
                  + "\nDeaths: " + players[2].GetComponent<Damage>().getTimesDied();
-            player3Image.sprite = players[2].GetComponent<Image>().sprite;
+            player3Image.sprite = players[2].GetComponent<SpriteRenderer>().sprite;
         }
         if (players.Length > 3)
         {
             player4Text.text = "Damage: " + players[3].GetComponent<Damage>().getDamageMul()
                  + "\nDeaths: " + players[3].GetComponent<Damage>().getTimesDied();
-            player4Image.sprite = players[3].GetComponent<Image>().sprite;
+            player4Image.sprite = players[3].GetComponent<SpriteRenderer>().sprite;
         } 
     }
 }
