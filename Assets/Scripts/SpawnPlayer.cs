@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class SpawnPlayer : MonoBehaviour {
     public GameObject player;
-    static int max_players = 2;
+    static int max_players;
 
     int players_joined = 0;
 
     string player_no = "P0";
 
-    GameObject[] players = new GameObject[max_players];
+    GameObject[] players;  
 	
+    void Start ()
+    {
+        max_players = AOPlayers;
+        players = new GameObject[max_players];
+    }
+
 	void Update ()
     {
-		if (Input.GetButtonDown(player_no + "Start"))
-        {
+		//if (Input.GetButtonDown(player_no + "Start"))
+       // {
             if (players_joined < max_players)
             {
                 Debug.Log("spawn player " + players_joined);
@@ -32,7 +38,7 @@ public class SpawnPlayer : MonoBehaviour {
                 { 
                 player_no = "P" + players_joined;
                 }
-            }
+            //}
             gameObject.GetComponent<PanelInfo>().findPlayers();
         }
 	}
