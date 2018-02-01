@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour {
 
-    private int damageMultiplier = 0;
+    private int damageMultiplier = 1;
     private int times_died = 0;
 	
 	public void increaseDamageMul (int multiplier)
