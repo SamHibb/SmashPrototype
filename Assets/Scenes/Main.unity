@@ -591,14 +591,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1c12893c4e2114b81791379b89d1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Text: {fileID: 1781003380}
-  player2Text: {fileID: 638160297}
-  player3Text: {fileID: 1453439737}
-  player4Text: {fileID: 1559908831}
-  player1Image: {fileID: 1175313617}
-  player2Image: {fileID: 1175313616}
-  player3Image: {fileID: 1175313615}
-  player4Image: {fileID: 1175313614}
+  playerTexts:
+  - {fileID: 1781003380}
+  - {fileID: 638160297}
+  - {fileID: 1453439737}
+  - {fileID: 1559908831}
+  playerImages:
+  - {fileID: 1175313617}
+  - {fileID: 1175313616}
+  - {fileID: 1175313615}
+  - {fileID: 1175313614}
 --- !u!114 &1559908831 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114952521983599052, guid: 389a97e44b35b344084a2669e4a07621,
