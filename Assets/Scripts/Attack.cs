@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
 
+    public float attackRate = 1;
     public float radius;
     public float strenght = 10;
     public int damageMultiplier = 6;
@@ -15,6 +16,7 @@ public class Attack : MonoBehaviour
     private string player_string;
 
     private Vector2 normalVec = new Vector2(1, 1);
+    private float nextAttack;
 
     void Start()
     {
@@ -28,11 +30,12 @@ public class Attack : MonoBehaviour
 
         rotation = this.GetComponent<Movement>().GetOrientation();
 
-        if (Input.GetButtonDown(player_string + "B"))
+        if (Input.GetButtonDown(player_string + "B") && Time.time > nextAttack)
         {
             Collider2D[] hitColliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
             this.GetComponentInChildren<ParticleSystem>().Play();
             int i = 0;
+            nextAttack = Time.time + attackRate;
 
             // for colliders within range
             while (i < hitColliders.Length)
