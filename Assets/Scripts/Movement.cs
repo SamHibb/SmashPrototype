@@ -45,7 +45,7 @@ public class Movement : MonoBehaviour {
                 x += 0.08f;
             }
             orientation = 1;
-            spr.flipX = true;
+            spr.flipX = false;
         }
 
         else if (Input.GetAxis(player_string + "Horizontal") < -0.1f)
@@ -59,7 +59,7 @@ public class Movement : MonoBehaviour {
                 x -= 0.08f;
             }
             orientation = -1;
-            spr.flipX = false;
+            spr.flipX = true;
         }
 
         if (Input.GetButtonDown(player_string + "A") && isGrounded)
