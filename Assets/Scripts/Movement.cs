@@ -66,6 +66,14 @@ public class Movement : MonoBehaviour {
             //spr.flipX = false;
         }
 
+        if (Input.GetAxis(player_string + "Vertical") < -0.1f)
+        {
+            if (gameObject.transform.parent.tag == "MovingPlatform")
+            {
+                gameObject.transform.Translate(0, -0.5f, 0);
+            }
+        }
+
         if (Input.GetButtonDown(player_string + "A") && isGrounded)
         {
             Debug.Log(player_string + " " + player_no);
