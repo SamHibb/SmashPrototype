@@ -259,6 +259,30 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114058864789152832, guid: 852d851d1f3cbbf4e8eae753baf8ef73,
+        type: 2}
+      propertyPath: character4
+      value: 
+      objectReference: {fileID: 21300000, guid: 0cae64799e2bff648903547a8c9b9e0a,
+        type: 3}
+    - target: {fileID: 114058864789152832, guid: 852d851d1f3cbbf4e8eae753baf8ef73,
+        type: 2}
+      propertyPath: character1
+      value: 
+      objectReference: {fileID: 21300000, guid: 3fc69a4fdadfbcc499951bb542e1e4c8,
+        type: 3}
+    - target: {fileID: 114058864789152832, guid: 852d851d1f3cbbf4e8eae753baf8ef73,
+        type: 2}
+      propertyPath: character2
+      value: 
+      objectReference: {fileID: 21300000, guid: ef9bc4ff0e404a041a1fcfb160778558,
+        type: 3}
+    - target: {fileID: 114058864789152832, guid: 852d851d1f3cbbf4e8eae753baf8ef73,
+        type: 2}
+      propertyPath: character3
+      value: 
+      objectReference: {fileID: 21300000, guid: d9e7192108ea8264eaa66342e54cede2,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 852d851d1f3cbbf4e8eae753baf8ef73, type: 2}
@@ -1343,7 +1367,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Select the amount of player!
+  m_Text: Select the amount of players!
 --- !u!222 &1992426293
 CanvasRenderer:
   m_ObjectHideFlags: 0

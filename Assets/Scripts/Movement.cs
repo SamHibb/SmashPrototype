@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
 
+    public float maxVelocity = 10;
     public float jumpForce = 4.0f;
     public float walkForce = 4.0f;
     private float x = 0;
@@ -19,6 +20,9 @@ public class Movement : MonoBehaviour {
     private string player_string;
 
     private Rigidbody2D rb;
+    private SpriteRenderer spr;
+
+    private int orientation = 1;
 
     private void Start()
     {
@@ -26,6 +30,7 @@ public class Movement : MonoBehaviour {
         Debug.Log(player_string);
 
         rb = GetComponent<Rigidbody2D>();
+        spr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -40,6 +45,9 @@ public class Movement : MonoBehaviour {
             {
                 x += 0.08f;
             }
+            orientation = 1;
+            transform.localScale = new Vector3(1, 1, 1);
+            //spr.flipX = true;
         }
 
         else if (Input.GetAxis(player_string + "Horizontal") < -0.1f)
@@ -52,6 +60,10 @@ public class Movement : MonoBehaviour {
             {
                 x -= 0.08f;
             }
+
+            transform.localScale = new Vector3(-1, 1, 1);
+            orientation = -1;
+            //spr.flipX = false;
         }
 
         if (Input.GetButtonDown(player_string + "A") && isGrounded)
@@ -61,9 +73,10 @@ public class Movement : MonoBehaviour {
         }
 
         //this moves the player
-        rb.AddForce(new Vector2(x, y) * walkForce, ForceMode2D.Impulse);
 
+        rb.AddForce(new Vector2(x, y) * walkForce, ForceMode2D.Impulse);
         dampenForces();
+        //dampenForces();
 
         if (rb.velocity.y < 0)
         {
@@ -73,13 +86,26 @@ public class Movement : MonoBehaviour {
         {
             rb.gravityScale = 1;
         }
+
+        // limiting rb velocity just for testing purposes
+        if (rb.velocity.sqrMagnitude > maxVelocity)
+        {
+            //smoothness of the slowdown is controlled by the 0.99f, 
+            //0.5f is less smooth, 0.9999f is more smooth
+            rb.velocity *= 0.99f;
+        }
+
+        Debug.Log(rb.velocity + "velocity");
     }
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        collisionPoint = collision.contacts[0].point;
-        isGrounded = true;
-        y = 0;
+        if (collision.gameObject.tag != "Player")
+        {
+            collisionPoint = collision.contacts[0].point;
+            isGrounded = true;
+            y = 0;
+        }
     }
 
 
@@ -128,6 +154,11 @@ public class Movement : MonoBehaviour {
 			transform.parent = null;
 		}
 	}
+
+    public int GetOrientation()
+    {
+        return orientation;
+    }
 
 
 

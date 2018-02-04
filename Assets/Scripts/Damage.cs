@@ -21,7 +21,7 @@ public class Damage : MonoBehaviour {
 
     public void resetDamageMul()
     {
-        damageMultiplier = 1;
+        damageMultiplier = 0;
     }
 
     public void increaseTimesDied()

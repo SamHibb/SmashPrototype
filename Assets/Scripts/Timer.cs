@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -38,8 +39,15 @@ public class Timer : MonoBehaviour
 
             if (timeSec == 0 )
             {
-                timeMin--;
-                timeSec = 60;
+                if (timeMin != 0)
+                {
+                    timeMin--;
+                    timeSec = 60;
+                }
+                else
+                {
+                    SceneManager.LoadScene("Game Over");
+                }
             } 
         }
     }

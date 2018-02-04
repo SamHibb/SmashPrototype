@@ -20,6 +20,7 @@ public class Respawn : MonoBehaviour {
             transform.position = new Vector2(0, 0);
             this.GetComponent<Damage>().resetDamageMul();
             this.GetComponent<Damage>().increaseTimesDied();
+            this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
 
     }

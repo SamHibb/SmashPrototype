@@ -52,3 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1794473889166426, guid: 134df3ce4a583324583a706eec8cba91, type: 2}
+  character1: {fileID: 21300000, guid: 3cc13e5b35bb8fa4cbbb1bd9e8fb8517, type: 3}
+  character2: {fileID: 21300000, guid: 3cc13e5b35bb8fa4cbbb1bd9e8fb8517, type: 3}
+  character3: {fileID: 21300000, guid: 3cc13e5b35bb8fa4cbbb1bd9e8fb8517, type: 3}
+  character4: {fileID: 21300000, guid: b5fd40bcd7d1e0244a7a7b6f05b22932, type: 3}
