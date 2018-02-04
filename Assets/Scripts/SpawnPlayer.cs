@@ -31,7 +31,7 @@ public class SpawnPlayer : MonoBehaviour {
 
 	void Update ()
     {
-		if (SceneManager.GetActiveScene().name != "Level Selection" && SceneManager.GetActiveScene().name != "Player Select")
+		if (SceneManager.GetActiveScene().name != "Level Selection" && SceneManager.GetActiveScene().name != "Player Select" && SceneManager.GetActiveScene().name != "Game Over")
        {
             if (players_joined < max_players)
             {
