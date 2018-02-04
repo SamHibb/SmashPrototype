@@ -88,9 +88,12 @@ public class Movement : MonoBehaviour {
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        collisionPoint = collision.contacts[0].point;
-        isGrounded = true;
-        y = 0;
+        if (collision.gameObject.tag != "Player")
+        {
+            collisionPoint = collision.contacts[0].point;
+            isGrounded = true;
+            y = 0;
+        }
     }
 
 
