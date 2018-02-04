@@ -45,7 +45,8 @@ public class Movement : MonoBehaviour {
                 x += 0.08f;
             }
             orientation = 1;
-            spr.flipX = false;
+            transform.localScale = new Vector3(1, 1, 1);
+            //spr.flipX = true;
         }
 
         else if (Input.GetAxis(player_string + "Horizontal") < -0.1f)
@@ -58,8 +59,10 @@ public class Movement : MonoBehaviour {
             {
                 x -= 0.08f;
             }
+
+            transform.localScale = new Vector3(-1, 1, 1);
             orientation = -1;
-            spr.flipX = true;
+            //spr.flipX = false;
         }
 
         if (Input.GetButtonDown(player_string + "A") && isGrounded)

@@ -8,7 +8,7 @@ public class Attack : MonoBehaviour
     public float attackRate = 1;
     public float radius;
     public float strenght = 10;
-    public int damageMultiplier = 6;
+    public int damageMultiplier = 2;
     public int rotation = 1;
 
     public int player_no = 0;
@@ -32,7 +32,7 @@ public class Attack : MonoBehaviour
 
         if (Input.GetButtonDown(player_string + "B") && Time.time > nextAttack)
         {
-            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position + new Vector3(rotation*0.5f,0,0), radius);
             this.GetComponentInChildren<ParticleSystem>().Play();
             int i = 0;
             nextAttack = Time.time + attackRate;
@@ -93,6 +93,12 @@ public class Attack : MonoBehaviour
             }
         }
 
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(this.gameObject.transform.position + new Vector3(rotation*0.5f, 0, 0), radius);
     }
 
 }

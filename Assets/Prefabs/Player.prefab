@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64b62c71bdd1ea4fb2ebf05973f1fe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRate: 1
+  attackRate: 0.5
   radius: 1
   strenght: 2
   damageMultiplier: 2
