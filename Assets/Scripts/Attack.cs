@@ -78,9 +78,13 @@ public class Attack : MonoBehaviour
                                 Vector2 debugForce = force * strenght * damageMul;
                                 Debug.Log(debugForce + "attack force");
                             }
-
+                            Vector2 punch = force * strenght * damageMul;
+                            if(punch.x == 0 && punch.y == 0)
+                            {
+                                punch = new Vector2(1, 1); 
+                            }
                             // add the force multiplied by strenght and damageMul as impluse to the rb
-                            rb.AddForce(force * strenght * damageMul, ForceMode2D.Impulse);
+                            rb.AddForce(punch, ForceMode2D.Impulse);
 
                             // increase damageMultiplier on the player that got hit
                             hitColliders[i].gameObject.GetComponent<Damage>().increaseDamageMul(damageMultiplier);

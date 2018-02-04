@@ -160,10 +160,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2de2938ced4fca47909982dc1e61647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  min_x: -20
-  max_x: 20
+  min_x: -15
+  max_x: 15
   min_y: -6
-  max_y: 15
+  max_y: 12
 --- !u!114 &114832985117655368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRate: 0.5
-  radius: 1
+  radius: 0.5
   strenght: 2
   damageMultiplier: 2
   rotation: 1
