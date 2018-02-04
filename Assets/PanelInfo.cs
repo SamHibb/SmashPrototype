@@ -18,36 +18,57 @@ public class PanelInfo : MonoBehaviour
     public Image player4Image;
 
 
-    public void findPlayers()
+    private void Start()
     {
-        players = GameObject.FindGameObjectsWithTag("Player");
+        player1Text.enabled = false;
+        player2Text.enabled = false;
+        player3Text.enabled = false;
+        player4Text.enabled = false;
+
+        player1Image.enabled = false;
+        player2Image.enabled = false;
+        player3Image.enabled = false;
+        player4Image.enabled = false;
     }
 
     void Update ()
-    {
+    {        
         if (players.Length > 0)
         {
             player1Text.text = "Damage: " + players[0].GetComponent<Damage>().getDamageMul()
                 + "\nDeaths: " + players[0].GetComponent<Damage>().getTimesDied();
             player1Image.sprite = players[0].GetComponent<SpriteRenderer>().sprite;
+            player1Text.enabled = true;
+            player1Image.enabled = true;
         }
         if (players.Length > 1)
         {
             player2Text.text = "Damage: " + players[1].GetComponent<Damage>().getDamageMul()
                  + "\nDeaths: " + players[1].GetComponent<Damage>().getTimesDied();
             player2Image.sprite = players[1].GetComponent<SpriteRenderer>().sprite;
+            player2Text.enabled = true;
+            player2Image.enabled = true;
         }
         if (players.Length > 2)
         {
             player3Text.text = "Damage: " + players[2].GetComponent<Damage>().getDamageMul()
                  + "\nDeaths: " + players[2].GetComponent<Damage>().getTimesDied();
             player3Image.sprite = players[2].GetComponent<SpriteRenderer>().sprite;
+            player3Text.enabled = true;
+            player3Image.enabled = true;
         }
         if (players.Length > 3)
         {
             player4Text.text = "Damage: " + players[3].GetComponent<Damage>().getDamageMul()
                  + "\nDeaths: " + players[3].GetComponent<Damage>().getTimesDied();
             player4Image.sprite = players[3].GetComponent<SpriteRenderer>().sprite;
+            player4Text.enabled = true;
+            player4Image.enabled = true;
         } 
+    }
+
+    public void findPlayers()
+    {
+        players = GameObject.FindGameObjectsWithTag("Player");
     }
 }
