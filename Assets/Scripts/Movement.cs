@@ -66,9 +66,9 @@ public class Movement : MonoBehaviour {
             //spr.flipX = false;
         }
 
-        if (Input.GetAxis(player_string + "Vertical") > 0.1f)
+        if (Input.GetAxis(player_string + "Vertical") > 0.7f)
         {
-            if (gameObject.transform.parent.tag == "MovingPlatform")
+            if (this.transform.parent.tag == "MovingPlatform")
             {
                 gameObject.transform.Translate(0, -0.5f, 0);
             }
@@ -110,10 +110,16 @@ public class Movement : MonoBehaviour {
     {
         if (collision.gameObject.tag != "Player")
         {
-            collisionPoint = collision.contacts[0].point;
-            isGrounded = true;
-            y = 0;
+            jumpForce = 10.0f;
         }
+        else
+        {
+            jumpForce = 3.0f;
+        }
+
+        collisionPoint = collision.contacts[0].point;
+        isGrounded = true;
+        y = 0;
     }
 
 
