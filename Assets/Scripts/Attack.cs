@@ -37,6 +37,8 @@ public class Attack : MonoBehaviour
         if (Input.GetButtonDown(player_string + "B") && Time.time > nextAttack)
         {
             Collider2D[] hitColliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position + new Vector3(rotation*0.5f,0,0), radius);
+            ParticleSystem.ShapeModule shapeModule = this.GetComponentInChildren<ParticleSystem>().shape;
+            shapeModule.arc = 10f;
             this.GetComponentInChildren<ParticleSystem>().Play();
             int i = 0;
             nextAttack = Time.time + attackRate;
@@ -82,18 +84,20 @@ public class Attack : MonoBehaviour
                                 Vector2 debugForce = force * strength * damageMul;
                                 Debug.Log(debugForce + "attack force");
                             }
-                            Vector2 punch = force * strength * damageMul;
+                            Vector2 punch = force * damageMul;
 
                             if (strength > original_strength)
-                            {   
+                            {
                                 //reset after superpunch
                                 strength = original_strength;
                             }
 
-                            if(punch.x == 0 && punch.y == 0)
+                            if (punch.x == 0 && punch.y == 0)
                             {
                                 punch = new Vector2(1, 1); 
                             }
+
+                            punch *= strength;
                             // add the force multiplied by strength and damageMul as impluse to the rb
                             rb.AddForce(punch, ForceMode2D.Impulse);
 

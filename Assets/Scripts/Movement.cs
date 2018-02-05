@@ -103,7 +103,7 @@ public class Movement : MonoBehaviour {
             rb.velocity *= 0.99f;
         }
 
-        Debug.Log(rb.velocity + "velocity");
+        //Debug.Log(rb.velocity + "velocity");
     }
 
     void OnCollisionStay2D(Collision2D collision)
