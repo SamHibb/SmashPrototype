@@ -72,7 +72,7 @@ public class Attack : MonoBehaviour
                                 force.y = 0.5f; //this.GetComponent<Movement>().GetOrientation();
                             }
                             
-                            // debug shit
+                            // debug shiz
                             {
                                 Debug.Log(damageMul + "mul " + strenght + "strenght");
                                 Vector2 debugForce = force * strenght * damageMul;
