@@ -66,11 +66,14 @@ public class Movement : MonoBehaviour {
             //spr.flipX = false;
         }
 
-        if (Input.GetAxis(player_string + "Vertical") > 0.1f)
+        if (Input.GetAxis(player_string + "Vertical") > 0.9f)
         {
-            if (gameObject.transform.parent.tag == "MovingPlatform")
+            if (gameObject.transform.parent)
             {
-                gameObject.transform.Translate(0, -0.5f, 0);
+                if (gameObject.transform.parent.tag == "MovingPlatform")
+                {
+                    gameObject.transform.Translate(0, -0.5f, 0);
+                }
             }
         }
 
@@ -103,7 +106,7 @@ public class Movement : MonoBehaviour {
             rb.velocity *= 0.99f;
         }
 
-        Debug.Log(rb.velocity + "velocity");
+        //Debug.Log(rb.velocity + "velocity");
     }
 
     void OnCollisionStay2D(Collision2D collision)
