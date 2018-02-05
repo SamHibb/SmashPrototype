@@ -66,7 +66,7 @@ public class Movement : MonoBehaviour {
             //spr.flipX = false;
         }
 
-        if (Input.GetAxis(player_string + "Vertical") < -0.1f)
+        if (Input.GetAxis(player_string + "Vertical") > 0.1f)
         {
             if (gameObject.transform.parent.tag == "MovingPlatform")
             {
