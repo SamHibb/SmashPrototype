@@ -385,7 +385,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Super Smash Potatos '
+  m_Text: 'Super Smash Potatoes '
 --- !u!222 &542182934
 CanvasRenderer:
   m_ObjectHideFlags: 0

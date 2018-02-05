@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 199555273749828790}
   - component: {fileID: 198273843777548208}
   - component: {fileID: 60576934967849398}
+  - component: {fileID: 114524537611068858}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -134,6 +135,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daaaf25c11a205b48b313652bf85e150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114524537611068858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1794473889166426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f612fccb215ef4ca1a7d887dadb729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeTime: 1.5
+  radius: 1
+  strength: 10
+  damageMultiplier: 2
+  rotation: 1
+  player_no: 0
 --- !u!114 &114606374513655902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b5a1e80e83f8248b5eba77b574455b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxVelocity: 10
   jumpForce: 10
   walkForce: 4
   fall_speed: 3
@@ -177,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRate: 0.5
   radius: 0.5
-  strenght: 2
+  strength: 2
   damageMultiplier: 2
   rotation: 1
   player_no: 0
