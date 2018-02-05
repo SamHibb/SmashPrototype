@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4032956389006450}
   - component: {fileID: 114058864789152832}
+  - component: {fileID: 114000107101480144}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -40,6 +41,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114000107101480144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780292472931052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160ef85babfd58d49bbb3457e0281ae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefabs:
+  - {fileID: 1482180684085572, guid: c81e0d47b03a30a469a2bfc4d8c556f5, type: 2}
 --- !u!114 &114058864789152832
 MonoBehaviour:
   m_ObjectHideFlags: 1

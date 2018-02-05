@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MovingPlatform
   - UI
+  - Item
   layers:
   - Default
   - TransparentFX

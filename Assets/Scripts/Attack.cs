@@ -7,13 +7,15 @@ public class Attack : MonoBehaviour
 
     public float attackRate = 1;
     public float radius;
-    public float strenght = 10;
+    public float strength = 10;
     public int damageMultiplier = 2;
     public int rotation = 1;
 
     public int player_no = 0;
 
     private string player_string;
+
+    private float original_strength;
 
     private Vector2 normalVec = new Vector2(1, 1);
     private float nextAttack;
@@ -22,6 +24,8 @@ public class Attack : MonoBehaviour
     {
         player_string = "P" + player_no.ToString();
         Debug.Log(player_string);
+
+        original_strength = strength;
     }
 
     // Update is called once per frame
@@ -72,18 +76,25 @@ public class Attack : MonoBehaviour
                                 force.y = 0.5f; //this.GetComponent<Movement>().GetOrientation();
                             }
                             
-                            // debug shit
+                            // debug shiz
                             {
-                                Debug.Log(damageMul + "mul " + strenght + "strenght");
-                                Vector2 debugForce = force * strenght * damageMul;
+                                Debug.Log(damageMul + "mul " + strength + "strength");
+                                Vector2 debugForce = force * strength * damageMul;
                                 Debug.Log(debugForce + "attack force");
                             }
-                            Vector2 punch = force * strenght * damageMul;
+                            Vector2 punch = force * strength * damageMul;
+
+                            if (strength > original_strength)
+                            {   
+                                //reset after superpunch
+                                strength = original_strength;
+                            }
+
                             if(punch.x == 0 && punch.y == 0)
                             {
                                 punch = new Vector2(1, 1); 
                             }
-                            // add the force multiplied by strenght and damageMul as impluse to the rb
+                            // add the force multiplied by strength and damageMul as impluse to the rb
                             rb.AddForce(punch, ForceMode2D.Impulse);
 
                             // increase damageMultiplier on the player that got hit
@@ -103,6 +114,11 @@ public class Attack : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(this.gameObject.transform.position + new Vector3(rotation*0.5f, 0, 0), radius);
+    }
+
+    public void ChangeStrength(float amount)
+    {
+        strength = strength + amount;
     }
 
 }

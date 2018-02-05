@@ -10,6 +10,10 @@ public class Damage : MonoBehaviour {
 	public void increaseDamageMul (int multiplier)
     {
         damageMultiplier += multiplier;
+        if(damageMultiplier < 0)
+        {
+            damageMultiplier = 0;
+        }
         Debug.Log("multiplier: " + damageMultiplier);
 
     }
