@@ -113,10 +113,16 @@ public class Movement : MonoBehaviour {
     {
         if (collision.gameObject.tag != "Player")
         {
-            collisionPoint = collision.contacts[0].point;
-            isGrounded = true;
-            y = 0;
+            jumpForce = 10.0f;
         }
+        else
+        {
+            jumpForce = 3.0f;
+        }
+
+        collisionPoint = collision.contacts[0].point;
+        isGrounded = true;
+        y = 0;
     }
 
 
