@@ -72,6 +72,7 @@ public class Movement : MonoBehaviour {
             {
                 if (gameObject.transform.parent.tag == "MovingPlatform")
                 {
+                    Debug.Log("player pushing down " + player_no);
                     gameObject.transform.Translate(0, -0.5f, 0);
                 }
             }
